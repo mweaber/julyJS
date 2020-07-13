@@ -31,12 +31,28 @@ game.suspects[1] = {
 
 // console.log(game['suspects']);
 
-for (let i = 0; i < game['suspects'].length; i++) {
-    const element = game['suspects'][i];
-    console.log(element)
-    // Have to ['suspects'] because that array is never defined. 
+for (let i = 0; i < game["suspects"].length; i++) {
+  const element = game["suspects"][i];
+  // console.log(element)
+  // Have to ['suspects'] because that array is never defined.
 }
 
-game['suspects'].forEach(element => {
-    console.log(element)
+game["suspects"].forEach((element) => {
+  console.log(element);
 });
+
+var gameLoop = function () {
+  for (let i = 0; i < game.suspects.length; i++) {
+      console.log('outer loop')
+    for (let key in game.suspects[i]) {
+        console.log('inner loop')
+      if (game.suspects[i][key] === "Rusty") {
+        console.log(`Found 'em!`);
+      } else {
+        console.log("The killer is still loose");
+      }
+    }
+  }
+};
+
+gameLoop();
