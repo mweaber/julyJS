@@ -48,8 +48,10 @@ var gameLoop = function () {
         console.log('inner loop')
       if (game.suspects[i][key] === "Rusty") {
         console.log(`Found 'em!`);
+        return "Captured"
       } else {
         console.log("The killer is still loose");
+        return "Still out there"
       }
     }
   }
